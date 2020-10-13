@@ -1,3 +1,4 @@
+import { HotelsService } from './../../services/hotels.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private hotelsService: HotelsService) { }
 
   ngOnInit(): void {
+    this.getHotels('en');
+  }
+
+  getHotels(locale: string): void{
+    this.hotelsService.getHotels(locale).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 
 }
