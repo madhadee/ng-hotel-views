@@ -21,7 +21,7 @@
       </button>
       <span>Hotel Bookings</span>
 
-      <mat-button-toggle-group value="en" (change)="onChange($event)" class="language-toggle" name="languageSelect" aria-label="Select Language">
+      <mat-button-toggle-group [value]="locale" (change)="onChange($event)" class="language-toggle" name="languageSelect" aria-label="Select Language">
         <mat-button-toggle value="en">English</mat-button-toggle>
         <mat-button-toggle value="ja">Japanese</mat-button-toggle>
         <mat-button-toggle value="zh">Chinese</mat-button-toggle>

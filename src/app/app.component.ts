@@ -1,5 +1,5 @@
 import { HomeComponent } from './component/home/home.component';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,9 +10,9 @@ import { map, shareReplay } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ng-hotel-views';
-  locale = 'en';
+  locale: string;
   @ViewChild(HomeComponent) homeComponent: HomeComponent;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -22,10 +22,12 @@ export class AppComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
+  ngOnInit(): void {
+    this.locale = sessionStorage.getItem('locale') ? sessionStorage.getItem('locale') : 'en';
+  }
   onChange($event): void{
     console.log($event);
     this.locale = $event.value;
-
+    sessionStorage.setItem('locale', this.locale);
   }
 }
