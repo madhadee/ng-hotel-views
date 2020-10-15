@@ -5,7 +5,7 @@ Created by Hadee
 
 ## Starting the application
 
- View Demo
+ View Demo: https://examplehotels.web.app/
 
  **Prerequisites**
   - Angular needs to be installed: https://cli.angular.io/ 
