@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
     this.locale = sessionStorage.getItem('locale') ? sessionStorage.getItem('locale') : 'en';
   }
   onChange($event): void{
-    console.log($event);
     this.locale = $event.value;
     sessionStorage.setItem('locale', this.locale);
   }

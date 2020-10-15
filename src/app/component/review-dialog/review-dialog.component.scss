@@ -1,32 +1,8 @@
-.container {
-  margin: 10px;
-}
-
 .hotel-card{
-  max-width: 860px;
-  margin: 0 auto;
   margin-bottom: 20px;
-  padding-bottom: 30px;
-  overflow: auto;
-}
-.image{
-  float: left;
-  width: 240px;
-  height:180px;
-  margin: 0 10px 10px 0
-}
-.price {
-  float: right;
+  padding-bottom: 20px;
 }
 
-.reviews {
-  font-style: italic;
-  color: #242424;
-  font-weight: 600;
-  margin-left:10px;
-}
-
-// Method 2) Using a Sprite
 .star-ratings-sprite {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
   font-size: 0;
@@ -45,5 +21,4 @@
     height: 21px;
     display:block;
   }
-
 }

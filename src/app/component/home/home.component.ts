@@ -1,5 +1,7 @@
+import { ReviewDialogComponent } from './../review-dialog/review-dialog.component';
 import { HotelsService } from './../../services/hotels.service';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +12,11 @@ export class HomeComponent implements OnInit, OnChanges {
   @Input() locale: string;
   hotelsList: any[];
 
-  constructor(private hotelsService: HotelsService) { }
+  constructor(private hotelsService: HotelsService, public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-    // if (this.locale){
-    //   this.getHotels(this.locale);
-    // }
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     // tslint:disable-next-line: forin
     for (const item in changes) {
       const chng = changes[item];
@@ -36,7 +33,6 @@ export class HomeComponent implements OnInit, OnChanges {
   getHotels(locale: string): void{
     this.hotelsService.getHotels(locale).subscribe(
       res => {
-        console.log(res);
         if (res){
           this.hotelsList = res;
         }
@@ -44,8 +40,10 @@ export class HomeComponent implements OnInit, OnChanges {
     );
   }
 
-  viewReviews(){
-
+  viewReviews(reviews: any): void{
+    if (reviews.length > 0){
+      this.dialog.open(ReviewDialogComponent, {data: reviews});
+    }
   }
 
 }

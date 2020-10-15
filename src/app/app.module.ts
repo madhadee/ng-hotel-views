@@ -13,11 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { ReviewDialogComponent } from './component/review-dialog/review-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ReviewDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,8 +35,12 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatDialogModule,
   ],
   providers: [],
+  entryComponents: [
+    ReviewDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

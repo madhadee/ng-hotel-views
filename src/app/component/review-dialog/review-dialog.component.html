@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Reviews</h1>
+
+<mat-dialog-content>
+  <div class="reviews" *ngFor="let item of data">
+    <mat-card class="hotel-card">
+      <mat-card-header>
+        <mat-card-title>{{item.title}}</mat-card-title>
+        <div class="star-ratings-sprite"><span [style.width.%]="(item.rating/5)*100" class="star-ratings-sprite-rating"></span></div>
+        <mat-card-subtitle> <div class="username">Username: {{item.user.name}}</div>
+          <div class="location">Location: {{item.user.location}}</div></mat-card-subtitle>
+      </mat-card-header>
+
+    <mat-card-content>
+    <div class="description"> {{item.description}}</div>
+    </mat-card-content>
+  </mat-card>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -1,20 +1,24 @@
 <div class="container">
-  Display Hotels
-  <div class="card-container">
+  <div id="card-container">
     <ng-container *ngFor="let item of hotelsList">
       <mat-card class="hotel-card">
         <mat-card-header>
           <mat-card-title>{{item.name}}</mat-card-title>
           <mat-card-subtitle>{{item.address}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src='{{item?.photo}}' alt="Photo of a Shiba Inu">
+
+        <div class="star-ratings-sprite"><span [style.width.%]="(item.stars/5)*100" class="star-ratings-sprite-rating"></span></div>
+        <img class="image" src='{{item?.photo}}' alt="Photo of a Hotel">
         <mat-card-content>
           <p [innerHTML] ="item.description">
           </p>
-          {{item.price}}
+          <mat-card-title class="price">
+            ${{item.price}} / Night
+          </mat-card-title>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="viewReviews()">Reviews</button>
+          <button mat-raised-button color="primary" *ngIf="item?.reviews?.length > 0" (click)="viewReviews(item?.reviews)">Reviews ({{item?.reviews?.length}})</button>
+          <div class="reviews" *ngIf="item?.reviews?.length == 0 || !item?.reviews">No Reviews</div>
         </mat-card-actions>
 
       </mat-card>
