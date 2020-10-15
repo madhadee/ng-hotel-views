@@ -3,9 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 Created by Hadee
 
-## Starting the application
+## Demo 
 
  View Demo: https://examplehotels.web.app/
+
+## Starting the application
 
  **Prerequisites**
   - Angular needs to be installed: https://cli.angular.io/ 
