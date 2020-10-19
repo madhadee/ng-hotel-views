@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Reviews</h1>
 
-<mat-dialog-content>
+<mat-dialog-content *ngIf="data">
   <div class="reviews" *ngFor="let item of data">
     <mat-card class="hotel-card">
       <mat-card-header>

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { ReviewDialogComponent } from './review-dialog.component';
 
@@ -8,7 +9,17 @@ describe('ReviewDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReviewDialogComponent ]
+      declarations: [ ReviewDialogComponent ],
+      imports: [ MatDialogModule],
+      providers: [
+    { provide: MAT_DIALOG_DATA, useValue: [{
+      description: 'description',
+      rating: 2,
+      title: 'title',
+      user: { name: 'name', location: 'location'}
+    }] },
+    { provide: MatDialogRef, useValue: {} }
+  ]
     })
     .compileComponents();
   });

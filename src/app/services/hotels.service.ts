@@ -10,10 +10,12 @@ const headers = new HttpHeaders().set('Content-Type', 'application/json');
 })
 export class HotelsService {
 
+  // retrieve apiUrl from environment.ts file
   private readonly hotelsBaseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
+  /* Basic HTTP get call and returns data*/
   getHotels(locale: string): Observable<any[]> {
     return this.http.get<any[]>(this.hotelsBaseUrl + locale);
   }

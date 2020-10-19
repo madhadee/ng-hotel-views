@@ -22,9 +22,12 @@ export class AppComponent implements OnInit {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+  /* Set Locale as en for default or from sessionStore if not empty */
   ngOnInit(): void {
     this.locale = sessionStorage.getItem('locale') ? sessionStorage.getItem('locale') : 'en';
   }
+
+  /* Function call when button group has changes and set sessionStorage to the latest*/
   onChange($event): void{
     this.locale = $event.value;
     sessionStorage.setItem('locale', this.locale);
